@@ -1,0 +1,37 @@
+{
+  "name": "ionic-flat-colors",
+  "homepage": "http://matheusrocha89.github.io/ionic-flat-colors/",
+  "authors": [
+    "Matheus Cruz Rocha <matheus.rocha89@gmail.com>"
+  ],
+  "description": "Flat colors for ionic v1 framework components",
+  "main": [
+    "dist/css/ionic-flat.css",
+    "dist/css/ionic-flat.min.css"
+  ],
+  "moduleType": [],
+  "keywords": [
+    "ionic",
+    "flat colors",
+    "colors"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "0.2.3",
+  "_release": "0.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.3",
+    "commit": "57771cfe5f5b1dfe8c4cf0bcf20ee1be28001e46"
+  },
+  "_source": "git://github.com/matheusrocha89/ionic-flat-colors.git",
+  "_target": "~0.2.3",
+  "_originalSource": "ionic-flat-colors",
+  "_direct": true
+}

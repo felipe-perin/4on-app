@@ -1,0 +1,249 @@
+// The mixins here are from Ionic Framework Project
+
+// Button Mixins
+// --------------------------------------------------
+
+@mixin button-style($bg-color, $border-color, $active-bg-color, $active-border-color, $color) {
+  border-color: transparent;//$border-color;
+  background-color: $bg-color;
+  color: $color;
+
+  // Give desktop users something to play with
+  &:hover {
+    color: $color;
+    text-decoration: none;
+  }
+  &.active,
+  &.activated {
+    //border-color: transparent;//$active-border-color;
+    background-color: $active-bg-color;
+    //box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+  }
+}
+
+@mixin button-clear($color, $font-size:"") {
+  &.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: $color;
+
+    @if $font-size != "" {
+      font-size: $font-size;
+    }
+  }
+  &.button-icon {
+    border-color: transparent;
+    background: none;
+  }
+}
+
+@mixin button-outline($color, $text-color:"") {
+  &.button-outline {
+    border-color: $color;
+    background: transparent;
+    @if $text-color == "" {
+      $text-color: $color;
+    }
+    color: $text-color;
+    &.active,
+    &.activated {
+      background-color: $color;
+      box-shadow: none;
+      color: #fff;
+    }
+  }
+}
+
+// Bar Mixins
+// --------------------------------------------------
+
+@mixin bar-style($bg-color, $border-color, $color) {
+  border-color: $border-color;
+  background-color: $bg-color;
+  background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
+  color: $color;
+
+  .title {
+    color: $color;
+  }
+}
+
+// Checkbox Mixins
+// --------------------------------------------------
+
+@mixin checkbox-style($off-border-color, $on-bg-color, $on-border-color) {
+  & input:before,
+  & .checkbox-icon:before {
+    border-color: $off-border-color;
+  }
+
+  // what the background looks like when its checked
+  & input:checked:before,
+  & input:checked + .checkbox-icon:before {
+    background: $on-bg-color;
+    border-color: $on-border-color;
+  }
+}
+
+// Toggle Mixins
+// --------------------------------------------------
+
+@mixin toggle-style($on-border-color, $on-bg-color) {
+  // the track when the toggle is "on"
+  & input:checked + .track {
+    border-color: $on-border-color;
+    background-color: $on-bg-color;
+  }
+}
+@mixin toggle-small-style($on-bg-color) {
+  // the track when the toggle is "on"
+  & input:checked + .track {
+    background-color: rgba($on-bg-color, .5);
+  }
+  & input:checked + .track .handle {
+    background-color: $on-bg-color;
+  }
+}
+
+// Range Mixins
+// --------------------------------------------------
+
+@mixin range-style($track-bg-color) {
+  &::-webkit-slider-thumb:before {
+    background: $track-bg-color;
+  }
+  &::-ms-fill-lower{
+    background: $track-bg-color;
+  }
+}
+
+// Tab Mixins
+// --------------------------------------------------
+
+@mixin tab-style($bg-color, $border-color, $color) {
+  border-color: $border-color;
+  background-color: $bg-color;
+  background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
+  color: $color;
+}
+
+@mixin tab-badge-style($bg-color, $color) {
+  .tab-item .badge {
+    background-color: $bg-color;
+    color: $color;
+  }
+}
+
+@mixin tabs-striped($style, $color, $background) {
+  &.#{$style} {
+    .tabs{
+      background-color: $background;
+    }
+    .tab-item {
+      color: rgba($color, $tabs-striped-off-opacity);
+      opacity: 1;
+      .badge{
+        opacity:$tabs-striped-off-opacity;
+      }
+      &.tab-item-active,
+      &.active,
+      &.activated {
+        margin-top: -$tabs-striped-border-width;
+        color: $color;
+        border-style: solid;
+        border-width: $tabs-striped-border-width 0 0 0;
+        border-color: $color;
+      }
+    }
+  }
+  &.tabs-top{
+    .tab-item {
+      &.tab-item-active,
+      &.active,
+      &.activated {
+        .badge {
+          top: 4%;
+        }
+      }
+    }
+  }
+}
+
+@mixin tabs-background($style, $color, $border-color) {
+  .#{$style} {
+    .tabs,
+    &> .tabs{
+      background-color: $color;
+      background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
+      border-color: $border-color;
+    }
+  }
+}
+
+@mixin tabs-striped-background($style, $color) {
+  &.#{$style} {
+    .tabs {
+      background-color: $color;
+      background-image:none;
+    }
+  }
+}
+
+@mixin tabs-color($style, $color) {
+  .#{$style} {
+    .tab-item {
+      color: rgba($color, $tabs-off-opacity);
+      opacity: 1;
+      .badge{
+        opacity:$tabs-off-opacity;
+      }
+      &.tab-item-active,
+      &.active,
+      &.activated {
+        color: $color;
+        border: 0 solid $color;
+        .badge{
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@mixin tabs-striped-color($style, $color) {
+  &.#{$style} {
+    .tab-item {
+      color: rgba($color, $tabs-striped-off-opacity);
+      opacity: 1;
+      .badge{
+        opacity:$tabs-striped-off-opacity;
+      }
+      &.tab-item-active,
+      &.active,
+      &.activated {
+        margin-top: -$tabs-striped-border-width;
+        color: $color;
+        border: 0 solid $color;
+        border-top-width: $tabs-striped-border-width;
+        .badge{
+          top:$tabs-striped-border-width;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@mixin tabs-standard-color($style, $color, $off-color:$dark) {
+  &.#{$style} {
+    .tab-item {
+      color: $off-color;
+      &.tab-item-active,
+      &.active,
+      &.activated {
+        color: $color;
+      }
+    }
+  }
+}

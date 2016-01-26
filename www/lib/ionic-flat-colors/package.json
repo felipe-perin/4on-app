@@ -1,0 +1,20 @@
+{
+  "name": "ionic-flat-colors",
+  "version": "0.2.2",
+  "description": "Flat colors for ionic components",
+  "author": {
+    "name": "Matheus Cruz Rocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheusrocha89/ionic-flat-colors"
+  },
+  "license": "MIT",
+  "homepage": "http://matheusrocha89.github.io/ionic-flat-colors/",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-cssnano": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1"
+  }
+}
