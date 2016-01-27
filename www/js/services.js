@@ -6,6 +6,7 @@ angular.module('starter.services', [])
     };
 
     var getUser = function(){
+      console.log(window.localStorage.starter_facebook_user);
       return JSON.parse(window.localStorage.starter_facebook_user || '{}');
     };
 

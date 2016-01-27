@@ -37,6 +37,7 @@ angular.module('starter.controllers', [])
           email: profileInfo.email,
           picture : "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
         });
+        console.log(UserService.getUser());
         User.signin().then(function(response){
           $state.go('app.home');
         });
@@ -84,6 +85,7 @@ angular.module('starter.controllers', [])
           getFacebookProfileInfo(success.authResponse)
             .then(function(profileInfo) {
               // For the purpose of this example I will store user data on local storage
+              console.log(success);
               UserService.setUser({
                 authResponse: success.authResponse,
                 userID: profileInfo.id,
