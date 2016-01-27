@@ -9,8 +9,19 @@ angular.module('starter.services', [])
       return JSON.parse(window.localStorage.starter_facebook_user || '{}');
     };
 
+    var setToken = function(token) {
+      window.localStorage.userToken = JSON.stringify(token);
+    };
+
+    var getToken = function(){
+      return JSON.parse(window.localStorage.userToken || '{}');
+    };
+
     return {
       getUser: getUser,
-      setUser: setUser
+      setUser: setUser,
+      getToken: getToken,
+      setToken: setToken
     };
   });
+

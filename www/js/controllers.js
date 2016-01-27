@@ -10,7 +10,7 @@ angular.module('starter.controllers', [])
   //});
 })
 
-.controller('HomeScreenCtrl', function($scope, $q, UserService, $ionicLoading) {
+.controller('HomeScreenCtrl', function($scope, $q, UserService, signalr, $state, User) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -37,9 +37,9 @@ angular.module('starter.controllers', [])
           email: profileInfo.email,
           picture : "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
         });
-        console.log(authResponse);
-        $ionicLoading.hide();
-        $state.go('app.home');
+        User.signin().then(function(response){
+          $state.go('app.home');
+        });
       }, function(fail){
         // Fail get profile info
         console.log('profile info fail', fail);
@@ -49,7 +49,6 @@ angular.module('starter.controllers', [])
   // This is the fail callback from the login method
   var fbLoginError = function(error){
     console.log('fbLoginError', error);
-    $ionicLoading.hide();
   };
 
   // This method is to get the user profile info from the facebook api
@@ -92,8 +91,9 @@ angular.module('starter.controllers', [])
                 email: profileInfo.email,
                 picture : "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
               });
-
-              $state.go('app.home');
+              User.signin().then(function(response){
+                $state.go('app.home');
+              });
             }, function(fail){
               // Fail get profile info
               console.log('profile info fail', fail);
@@ -108,10 +108,6 @@ angular.module('starter.controllers', [])
         // so we're not sure if they are logged into this app or not.
 
         console.log('getLoginStatus', success.status);
-
-        $ionicLoading.show({
-          template: 'Logging in...'
-        });
 
         // Ask the permissions you need. You can learn more about
         // FB permissions here: https://developers.facebook.com/docs/facebook-login/permissions/v2.4

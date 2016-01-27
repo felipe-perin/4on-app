@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     <title></title>
 
-
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
 
@@ -16,10 +15,18 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
+    <!-- jquery -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- signalR -->
+    <script src="http://4reallyweb.com.br/webapi/Scripts/jquery.signalR-2.2.0.js" type="text/javascript"></script>
+    <script src="http://4reallyweb.com.br/webapi/signalr/hubs" type="text/javascript"></script>
+
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/factories.js"></script>
   </head>
   <body ng-app="starter">
     <ion-nav-view></ion-nav-view>
